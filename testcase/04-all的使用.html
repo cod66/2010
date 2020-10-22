@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let wake = (time) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(time / 1000 + 's醒来');
+        }, time)
+      })
+    }
+
+    let p1 = wake(2000);
+    let p2 = wake(3000);
+
+    // all 等待所有的异步任务都完成,才执行
+    // Promise.all([p1, p2]).then(data => {
+    //   console.log(data);
+
+    // }).catch(error => {
+    //   console.log(error);
+
+    // })
+
+  </script>
+</body>
+
+</html>

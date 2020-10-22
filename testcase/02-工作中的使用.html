@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // let fn = () => {
+    //   console.log('我是函数,被调用了....');
+    //   let p = new Promise((resolve, reject) => {
+    //     // 延时2s调用成功
+    //     setTimeout(() => {
+    //       //调用成功
+    //       //resolve('哈哈,我是成功的....');
+    //       // 调用失败
+    //       reject('啦啦,我是失败的....')
+    //     }, 2000)
+    //   })
+    //   return p;
+    // }
+
+
+    let fn = () => {
+      console.log('我是函数,被调用了....');
+      return new Promise((resolve, reject) => {
+        // 延时2s调用成功
+        setTimeout(() => {
+          //调用成功
+          //resolve('哈哈,我是成功的....');
+          // 调用失败
+          reject('啦啦,我是失败的....')
+        }, 2000)
+      })
+
+    }
+
+    fn().then(res => {
+      console.log(res, 'success');
+
+    }).catch(res => {
+      console.log(res, 'failer');
+
+    })
+
+  </script>
+</body>
+
+</html>

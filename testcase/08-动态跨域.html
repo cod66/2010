@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="fn()">点我跨域</button>
+  <script>
+    function goods(param) {
+      //console.log(param);
+      param = JSON.parse(param);
+      // console.log(param);
+      let div = '';
+      for (let attr in param) {
+        div += '<div>' + param[attr] + '</div>';
+      }
+      document.body.innerHTML += div;
+
+
+    }
+    // jsonp 就是动态跨域,让跨域受我们的控制
+
+    function fn() {
+      // 本质:生成一个script标签,请求php资源
+      let script = document.createElement('script');
+      // 添加请求的地址,携带回调函数的名字
+      script.src = 'http://www.2010.com/02-jsonp.php?fn=goods';
+      let headObj = document.querySelector('head');
+      headObj.appendChild(script);
+
+      // 清除script
+      script.remove();
+    }
+
+  </script>
+</body>
+
+</html>

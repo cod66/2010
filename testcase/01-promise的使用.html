@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      let p = new promise(function(resolve,reject){})
+  
+      resolve 成功时调用
+      reject  失败时调用
+  
+    */
+
+    const p = new Promise(function (resolve, reject) {
+      // 成功时调用
+      //resolve('啦啦,我是成功的...');
+
+      // 失败时调用
+      reject('嘿嘿,我...')
+    });
+
+    // 成功或者失败的状态由我们决定
+
+    // .then()  响应成功  响应resolve
+    // .catch()  响应失败  响应reject
+
+    p.then(res => {
+      console.log(res, 'success');
+
+    }).catch(res => {
+      console.log(res, 'failer');
+    })
+  </script>
+</body>
+
+</html>
